@@ -203,7 +203,12 @@ export default function HigherEducationPage() {
       return;
     }
 
-    alert(editingId ? "Record updated successfully." : "Record added successfully.");
+    alert(
+      editingId
+        ? "Record updated successfully."
+        : "Record added successfully."
+    );
+
     cancelForm();
     await loadRecords();
   }
@@ -768,41 +773,61 @@ export default function HigherEducationPage() {
                 </tr>
               ) : filteredRecords.length === 0 ? (
                 <tr>
-                  <td colSpan={11} className="p-8 text-center text-slate-500">
+                  <td
+                    colSpan={11}
+                    className="p-8 text-center text-slate-500"
+                  >
                     No Higher Education records found.
                   </td>
                 </tr>
               ) : (
                 filteredRecords.map((item) => (
                   <tr key={item.id} className="hover:bg-slate-50">
-                    <td className="border p-3">{item.student_name || "-"}</td>
+                    <td className="border p-3">
+                      {item.student_name || "-"}
+                    </td>
+
                     <td className="border p-3">
                       {item.registered_number || "-"}
                     </td>
+
                     <td className="border p-3">
                       {item.student_batch || "-"}
                     </td>
+
                     <td className="border p-3">
                       <div>{item.program_level || "-"}</div>
                       <div className="text-xs text-slate-500">
                         {item.program_name || ""}
                       </div>
                     </td>
+
                     <td className="border p-3">
                       {item.university_name || "-"}
                     </td>
+
                     <td className="border p-3">
                       {item.admission_year || "-"}
                     </td>
+
                     <td className="border p-3">
                       {item.examination || "-"}
                     </td>
+
                     <td className="border p-3">
                       {item.score !== null
-                        ? `${item.score}${item.score_type ? ` (${item.score_type})` : ""}`
+                        ? `${item.score}${
+                            item.score_type
+                              ? ` (${item.score_type})`
+                              : ""
+                          }`
                         : "-"}
                     </td>
-                    <td className="border p-3">{item.rank || "-"}</td>
+
+                    <td className="border p-3">
+                      {item.rank || "-"}
+                    </td>
+
                     <td className="border p-3">
                       {item.proof_link ? (
                         <a
@@ -817,6 +842,7 @@ export default function HigherEducationPage() {
                         "-"
                       )}
                     </td>
+
                     <td className="border p-3">
                       <div className="flex gap-2">
                         <button
@@ -826,6 +852,7 @@ export default function HigherEducationPage() {
                         >
                           Edit
                         </button>
+
                         <button
                           type="button"
                           onClick={() => deleteRecord(item.id)}
@@ -843,44 +870,24 @@ export default function HigherEducationPage() {
         </div>
       </div>
 
+      {/* PRINT-ONLY OFFICIAL ANITS LETTERHEAD */}
       <div className="print-only print-letterhead">
-        <div className="border-b-2 border-black pb-2">
-          <div className="flex items-center gap-3">
-            <div className="flex h-16 w-20 items-center justify-center border border-black text-xs font-bold">
-              ANITS
-            </div>
-            <div className="flex-1 text-center">
-              <div className="text-lg font-bold">
-                Anil Neerukonda Institute of Technology & Sciences (Autonomous)
-              </div>
-              <div className="text-xs">
-                Affiliated to AU, Approved by AICTE & Accredited by NAAC with A+ Grade
-              </div>
-              <div className="text-xs">
-                Accredited by NBA (B.Tech – ECE, EEE, CSE, IT, MECH, Civil & Chemical)
-              </div>
-              <div className="mt-1 text-xs">
-                Sangivalasa-531 162, Bheemunipatnam Mandal, Visakhapatnam District
-              </div>
-              <div className="text-xs">
-                Phone: 8712005999, 8712008222 | Website: www.anits.edu.in
-              </div>
-            </div>
-          </div>
-        </div>
+        <img
+          src="/anits_letterhead.png"
+          alt="ANITS Department of Mechanical Engineering Letterhead"
+          className="w-full"
+        />
 
         <h2 className="mt-3 text-center text-base font-bold underline">
-          DEPARTMENT OF MECHANICAL ENGINEERING
-        </h2>
-
-        <h3 className="mt-3 text-center text-sm font-bold">
           HIGHER EDUCATION STUDENT RECORDS
-        </h3>
+        </h2>
       </div>
 
+      {/* PRINT-ONLY TABLE */}
       <table className="print-only print-table">
         <thead>
           <tr>
+            <th>S.No.</th>
             <th>Student Name</th>
             <th>Registered No.</th>
             <th>Batch</th>
@@ -890,28 +897,41 @@ export default function HigherEducationPage() {
             <th>Examination</th>
             <th>Score</th>
             <th>Rank</th>
-            <th>Proof</th>
           </tr>
         </thead>
+
         <tbody>
-          {filteredRecords.map((item) => (
+          {filteredRecords.map((item, index) => (
             <tr key={item.id}>
+              <td>{index + 1}</td>
+
               <td>{item.student_name || "-"}</td>
+
               <td>{item.registered_number || "-"}</td>
+
               <td>{item.student_batch || "-"}</td>
+
               <td>
                 {item.program_level || "-"}
-                {item.program_name ? ` / ${item.program_name}` : ""}
+                {item.program_name
+                  ? ` / ${item.program_name}`
+                  : ""}
               </td>
+
               <td>{item.university_name || "-"}</td>
+
               <td>{item.admission_year || "-"}</td>
+
               <td>{item.examination || "-"}</td>
+
               <td>
                 {item.score !== null ? item.score : "-"}
-                {item.score_type ? ` (${item.score_type})` : ""}
+                {item.score_type
+                  ? ` (${item.score_type})`
+                  : ""}
               </td>
+
               <td>{item.rank || "-"}</td>
-              <td>{item.proof_link || "-"}</td>
             </tr>
           ))}
         </tbody>

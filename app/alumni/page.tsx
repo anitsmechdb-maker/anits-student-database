@@ -857,8 +857,8 @@ export default function AlumniPage() {
                     <th className="p-4">Department</th>
                     <th className="p-4">Activity</th>
                     <th className="p-4">Alumni Present</th>
-                    <th className="p-4">Proof</th>
-                    <th className="p-4">Actions</th>
+                    <th className="p-4 print-hide-proof">Proof</th>
+                    <th className="p-4 print-hide-actions">Actions</th>
                   </tr>
                 </thead>
 
@@ -871,7 +871,7 @@ export default function AlumniPage() {
                       <td className="p-4">
                         {item.alumni_present ?? "-"}
                       </td>
-                      <td className="p-4">
+                      <td className="p-4 print-hide-proof">
                         {item.proof_link ? (
                           <a href={item.proof_link} target="_blank" rel="noopener noreferrer"
                             className="font-semibold text-blue-600 hover:underline">
@@ -879,7 +879,7 @@ export default function AlumniPage() {
                           </a>
                         ) : "-"}
                       </td>
-                      <td className="p-4 whitespace-nowrap">
+                      <td className="p-4 whitespace-nowrap print-hide-actions">
                         {item.proof_link && (
                           <a
                             href={item.proof_link}
@@ -1075,8 +1075,8 @@ export default function AlumniPage() {
                     <th className="p-4">Contribution Type</th>
                     <th className="p-4">Details</th>
                     <th className="p-4">Students Benefited</th>
-                    <th className="p-4">Proof</th>
-                    <th className="p-4">Actions</th>
+                    <th className="p-4 print-hide-proof">Proof</th>
+                    <th className="p-4 print-hide-actions">Actions</th>
                   </tr>
                 </thead>
 
@@ -1099,7 +1099,7 @@ export default function AlumniPage() {
                       <td className="p-4">
                         {item.students_benefited ?? "-"}
                       </td>
-                      <td className="p-4">
+                      <td className="p-4 print-hide-proof">
                         {item.proof_link ? (
                           <a href={item.proof_link} target="_blank" rel="noopener noreferrer"
                             className="font-semibold text-blue-600 hover:underline">
@@ -1107,7 +1107,7 @@ export default function AlumniPage() {
                           </a>
                         ) : "-"}
                       </td>
-                      <td className="p-4 whitespace-nowrap">
+                      <td className="p-4 whitespace-nowrap print-hide-actions">
                         {item.proof_link && (
                           <a
                             href={item.proof_link}
@@ -1276,8 +1276,8 @@ export default function AlumniPage() {
                     <th className="p-4">Roll Number</th>
                     <th className="p-4">Amount</th>
                     <th className="p-4">Sponsored For</th>
-                    <th className="p-4">Proof</th>
-                    <th className="p-4">Actions</th>
+                    <th className="p-4 print-hide-proof">Proof</th>
+                    <th className="p-4 print-hide-actions">Actions</th>
                   </tr>
                 </thead>
 
@@ -1297,7 +1297,7 @@ export default function AlumniPage() {
                       <td className="p-4">
                         {item.sponsored_for || "-"}
                       </td>
-                      <td className="p-4">
+                      <td className="p-4 print-hide-proof">
                         {item.proof_link ? (
                           <a href={item.proof_link} target="_blank" rel="noopener noreferrer"
                             className="font-semibold text-blue-600 hover:underline">
@@ -1305,7 +1305,7 @@ export default function AlumniPage() {
                           </a>
                         ) : "-"}
                       </td>
-                      <td className="p-4 whitespace-nowrap">
+                      <td className="p-4 whitespace-nowrap print-hide-actions">
                         {item.proof_link && (
                           <a
                             href={item.proof_link}
@@ -1376,6 +1376,11 @@ export default function AlumniPage() {
             .print-letterhead {
               display: block !important;
               margin-bottom: 8mm !important;
+            }
+
+            .print-hide-proof,
+            .print-hide-actions {
+              display: none !important;
             }
 
             table {

@@ -892,7 +892,7 @@ export default function EntranceExamsPage() {
                       Rank
                     </th>
 
-                    <th className="px-5 py-4 font-semibold text-slate-700">
+                    <th className="px-5 py-4 font-semibold text-slate-700 print-hide-proof">
                       Proof
                     </th>
 
@@ -972,7 +972,7 @@ export default function EntranceExamsPage() {
                         {record.rank || "-"}
                       </td>
 
-                      <td className="px-5 py-4">
+                      <td className="px-5 py-4 print-hide-proof">
 
                         {record.proof_link ? (
 
@@ -1097,7 +1097,8 @@ export default function EntranceExamsPage() {
           }
 
           .print-hide-actions,
-          .print-hide-controls {
+          .print-hide-controls,
+          .print-hide-proof {
             display: none !important;
           }
 
