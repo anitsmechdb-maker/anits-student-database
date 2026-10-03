@@ -67,7 +67,6 @@ export default function Home() {
                 alumni information, users, import, export, and printing.
               </p>
 
-              {/* IMPORTANT: This now opens Admin Login page */}
               <a
                 href="/admin-login"
                 className="mt-6 block w-full rounded-lg bg-blue-600 px-5 py-3 text-center text-sm font-semibold text-white transition hover:bg-blue-700"
@@ -94,12 +93,13 @@ export default function Home() {
                 open proof documents, and print reports.
               </p>
 
-              <button
-                type="button"
-                className="mt-6 w-full rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+              {/* User Login → User Login Page */}
+              <a
+                href="/user-login"
+                className="mt-6 block w-full rounded-lg border border-slate-300 bg-white px-5 py-3 text-center text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
               >
                 User Login
-              </button>
+              </a>
             </div>
           </div>
 

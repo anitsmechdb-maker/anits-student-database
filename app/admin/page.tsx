@@ -20,6 +20,7 @@ export default function AdminDashboard() {
             <h1 className="text-2xl font-bold text-slate-800">
               ANITS
             </h1>
+
             <p className="text-sm text-slate-500">
               Student Higher Education Database
             </p>
@@ -146,6 +147,31 @@ export default function AdminDashboard() {
               className="mt-5 rounded-lg bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-purple-700"
             >
               Manage Alumni
+            </button>
+          </div>
+
+          {/* Database Statistics */}
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50">
+              <span className="text-xl font-bold text-indigo-600">
+                📊
+              </span>
+            </div>
+
+            <h3 className="text-xl font-bold text-slate-800">
+              Database Statistics
+            </h3>
+
+            <p className="mt-2 text-sm text-slate-500">
+              View higher education and GATE statistics, batch-wise
+              records, rank holders and detailed reports.
+            </p>
+
+            <button
+              onClick={() => router.push("/admin-statistics")}
+              className="mt-5 rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700"
+            >
+              View Statistics
             </button>
           </div>
 
